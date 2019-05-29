@@ -1,0 +1,127 @@
+// .Global config/style for "sale" manage system.
+
+@import './base.scss';
+
+// .Color.
+// -------
+$clorGreyBright: #D4D4D4;
+// .Abbrv: Color grey light.
+// .Used for: Some light weight area, like button border, <hr> ... .
+$clorGreyBrightBright: #DDD;
+$clorGreyBrightDark: #BBB;
+$clorPrimary1: #ff9300;
+// .This color is copied from the source "base.scss".
+$clorPrimary2: #dd8100;
+$clorSecondary1: #B51212;
+// .This color is copied from the source "base.scss".
+$clorSecondary2: #a00303;
+$clorSecondary3: #CC0000;
+// .This color is copied from the source "main-area.vue".
+// .Not yet have sure purpose.
+// .This color is a bit stronger (higher Chroma) than $clorSecondary1,
+// use with care and only in necessary area.
+$clorBtnHoverGrey: rgba(0, 0, 0, 0.05);
+// .Very special use case.
+$global_font_color_big_font: #666;
+// .Big font generally need to reduce the stength on color for compensate of
+// bigger font size, otherwise they are visually too strong.
+
+// .Length.
+// -------
+$paddingLftRgtDefault: 1em;
+// .Padding left and right in default.
+// .The purpose is to give defult left and right padding for specific elements.
+$paddingLftRgtSm: 0.5em;
+// .Abbrv: "sm" = small.
+$paddingTopBtmDefault: 2em;
+$paddingTopBtmSm: 1em;
+
+.paddLftRgtDefault {
+	padding-left: $paddingLftRgtDefault;
+	padding-right: $paddingLftRgtDefault;
+}
+.paddLftRgtSm {
+	padding-left: $paddingLftRgtSm;
+	padding-right: $paddingLftRgtSm;
+}
+.paddTopBtmDefault {
+	padding-top: $paddingTopBtmDefault;
+	padding-bottom: $paddingTopBtmDefault;
+}
+.paddTopBtmSm {
+	padding-top: $paddingTopBtmSm;
+	padding-bottom: $paddingTopBtmSm;
+}
+
+// .Overwrite "base.scss" with Bootstrap default style (Bootstrap use those style).
+// --------------------------------------------------------------------------------
+h1 {
+	font-size: 2.5rem;
+}
+h2 {
+	font-size: 2rem;
+	text-align: center;
+}
+h3 {
+	font-size: 1.75rem;
+}
+h4 {
+	font-size: 1.5rem;
+}
+h5 {
+	font-size: 1.25rem;
+}
+h6 {
+	font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	color: $global_font_color_big_font;
+}
+
+// .Abrev: "button". The duplicate "nn" is to prevent name conflict with bootstrap.
+button {
+	font-size: 14px;
+	border: none;
+	color: #fff;
+	padding: 0.375rem 0.75rem;
+	border-radius: 0.25em;
+	&.btnn-primary {
+		background: $clorPrimary1;
+		&:hover {
+			background: $clorPrimary2;
+		}
+		&:active {
+		}
+	}
+	&.btnn-secondary {
+		background: $clorSecondary1;
+		&:hover {
+			background: $clorSecondary2;
+		}
+		&:active {
+		}
+	}
+}
+.btnn:active {
+	//border-width: 1px ;
+	//border-style: solid;
+	box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+	// .This color is casually choosed color.
+}
+.form-group {
+	// .Fixing bootstrap been overwrite by "base.scss".
+	// .Remove this if this is not the case anymore.
+	margin-top: $paddingTopBtmSm;
+}
+
+
+
+@media screen and (max-width: $screen_sm_width) {
+	.paddLftRgtDefault {
+		padding-left: $paddingLftRgtSm;
+		padding-right: $paddingLftRgtSm;
+	}
+}
